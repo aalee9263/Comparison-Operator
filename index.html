@@ -10,9 +10,9 @@
 <body>
     <h1>es6 Conditions checking with if statement</h1>
 
-    <form onsubmit="weatherCheck(event)">
-        Enter Your Room Temperature:
-        <input id="tempInput" type="number" required step="0.01">
+    <form onsubmit="AgeCheck(event)">
+        Enter Your Age:
+        <input id="ageInput" type="number" required step="1">
         <br>
         <button>Check</button>
     </form>
@@ -20,24 +20,37 @@
     <h1 id="resultWindow"></h1>
 
     <script>
-        function weatherCheck(event) {
+        function ageCheck(event) {
 
             event.preventDefault();
-            let tempInput = document.querySelector("#tempInput").value;
-            tempInput = Number(tempInput);
+            let ageInput = document.querySelector("#ageInput").value;
+            ageInput = Number(ageInput);
 
-            console.log(tempInput);
+            console.log(ageInput);
 
             let message = "";
 
-            if (tempInput > 25) {
-                message = "weather is hot"
+            if (ageInput < 4) {
+                message = "You are Toddler"
             } 
 
-            if(tempInput < 25){
-                message = "weather is cold"
+            if(ageInput < 12){
+                message = "Your are Child"
             }
 
+            if(ageInput < 19){
+                message = "Your are Teen"
+            }
+
+            if(ageInput < 39){
+                message = "Your are Adult"
+            }
+
+            if(ageInput < 59){
+                message = "Your are Middle Age Adult"
+            }else{
+                message = "Now You are Senior Citizen"
+            }
             document.querySelector("#resultWindow").innerHTML = message
 
         }
